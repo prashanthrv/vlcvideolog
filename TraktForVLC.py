@@ -262,10 +262,8 @@ class TraktForVLC(object):
                       self.vlc_ip + ":" + str(self.vlc_port))
 
         # Trakt app configuration
-        trakt_id = ("0e59f99095515c228d5fbc104e342574" +
-                    "941aeeeda95946b8fa50b2b0366609bf")
-        trakt_sc = ("3ed1d013ef80eb0bb45d8da8424b4b61" +
-                    "3713abb057ed505683caf0baf1b5c650")
+        trakt_id = ("b8fb342f7a079a8342aa0642e97d0ab670f93e4d8e130ec82776b71b60647863")
+        trakt_sc = ("5f5e2897aabf5a317c7fdb597a7fd479527ea96156a317b18d4fac33c7e24488")
 
         # Trakt user information
         trakt = {
@@ -520,11 +518,7 @@ class TraktForVLC(object):
                 or (not video['tv'] and self.DO_SCROBBLE_MOVIE))
                 and video["percentage"] >= self.SCROBBLE_PERCENT
                 and not self.cache["scrobbled"]
-                and self.cache['started_watching'] is not None
-                and ((time.time() - self.cache['started_watching'][0])
-                     > (float(video['duration']) / 3.0))
-                and ((self.vlcTime - self.cache['started_watching'][1])
-                     > (float(video['duration']) / 4.0))):
+                and self.cache['started_watching'] is not None):
 
             self.log.info("Scrobbling " + logtitle + " to Trakt...")
             try:
